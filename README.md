@@ -14,11 +14,14 @@ Welcome! This repo contains helpful information and starter files for your proje
 
 Please use this format for your User Stories assignations
 
-| User Stories     | John Doe | Jane Doe |
-| ---------------- | :--: | ---: |
-| Add US text here |  X   |      |
-| Add US text here |      |    X |
-| Add US text here |  X   |      |
+| User Stories     | Diego Velazquez | Ivanna Nouel | Tomas García |
+| ---------------- | :--: | :--: | :--: |
+| Add US text here |      |      |      |
+| Add US text here |      |      |      |
+| Add US text here |      |      |      |
+| Add US text here |      |      |      |
+| Add US text here |      |      |      |
+| Add US text here |      |      |      |
 
 # Live demo
 
