@@ -4,7 +4,11 @@ Welcome! This repo contains helpful information and starter files for your proje
 
 ## Team members
 
-Write here the names, career path and email of the members of the team
+| Name | Career path | Email |
+| :---:         |     :---:      |          :---: |
+| Diego Velazquez| Salesforce | diego.velazquez@itksquare.edu.mx |
+| Ivanna Nouel | JavaScript | ivanna.nouel@itksquare.edu.mx |
+| Tomas García | Flutter | junior.cabrera@itksquare.edu.mx |
 
 ## Assignation 
 
