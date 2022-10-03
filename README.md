@@ -8,7 +8,7 @@ Welcome! This repo contains helpful information and starter files for your proje
 | :---:         |     :---:      |          :---: |
 | Diego Velazquez| Salesforce | diego.velazquez@itksquare.edu.mx |
 | Ivanna Nouel | JavaScript | ivanna.nouel@itksquare.edu.mx |
-| Tomas García | Flutter | junior.cabrera@itksquare.edu.mx |
+| Tomas García | Flutter | tomas.garcia@itksquare.edu.mx |
 
 ## Assignation 
 
