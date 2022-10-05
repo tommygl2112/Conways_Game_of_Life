@@ -1,0 +1,38 @@
+<html>
+
+<head>
+  <title>Conway's Game Of Life</title>
+  <link rel="stylesheet" href="./styles.css"> <!-- Main CSS -->
+  <link rel="stylesheet" href="./stars.css"> <!-- Stars BG CSS -->
+</head>
+
+<body>
+
+  <main class="mainSpace">
+
+    <header>
+      <h1>Conway's Game Of Life</h1>
+    </header>
+
+    <section class="tableSection">
+      <!-- It is and it will be the unique table, and has an "id" for JS purpose-->
+      <table id="table"></table>
+    </section>
+
+    <section class="btnSection">
+      <button class="start" onclick="setInterval(newGeneration, 100)">Start</button>
+    </section>
+
+  </main>
+
+  <section class="wrapper"> <!-- Stars BG -->
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+  </section>
+
+  <script src="./gameLoop.js"></script>
+
+</body>
+
+</html>
