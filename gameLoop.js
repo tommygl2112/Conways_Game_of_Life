@@ -1,4 +1,6 @@
 btnStart= document.querySelector(".start");
+btnClear= document.querySelector(".clear");
+
 
 
 let xySize = 20; // Height and width of the grid
@@ -97,6 +99,8 @@ function init() { // Initialize the game
     draw();
 
     btnStart.onclick=() => start();
+    btnClear.onclick = () => clear();
+
 
 }
 
@@ -146,6 +150,20 @@ function play() {
         timer = setTimeout(play, 100); //will call the function play that run the game and execute the new generation
     }
 }
+
+
+//this function is to clear the board
+function clear(){
+    //we create a nested loop to go throght every cell then remove the ones "filled"[black] and add "empty"[white]
+    for (let y = 0; y < xySize; y++) {
+        for (let x = 0; x < xySize; x++) {
+            document.querySelector(`#coor-${x + "-" + y}`).classList.remove("filled");
+            document.querySelector(`#coor-${x + "-" + y}`).classList.add("empty");
+            cells[y][x] = 0;
+        }
+    }
+}
+
 
 
 init(); // Initialize the game
