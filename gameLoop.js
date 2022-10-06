@@ -1,5 +1,6 @@
-btnStart= document.querySelector(".start");
-btnClear= document.querySelector(".clear");
+btnStart = document.querySelector(".start");
+btnClear = document.querySelector(".clear");
+btnRandom = document.querySelector(".randomize");
 
 
 
@@ -22,7 +23,7 @@ function createTable() {
         htmlArr.push(tdArr); // the "push()" adds new items to the end of an array, in this case the "tdArr"
         table.appendChild(tr); // the "appendChild()" appends a element as the last child of an element, in this case "tr" variable
 
-        for (let x = 0; x <xySize; x++) { // Width
+        for (let x = 0; x < xySize; x++) { // Width
 
             // Generates the <td></td> with an "id" and "onmouseup" function, then append it in the respective <tr></tr>
             let td = document.createElement('td'); // Creates <td></td>
@@ -54,7 +55,7 @@ function newGeneration() {
     for (let y = 0; y < xySize; y++) { // Temporal logical grid
 
         newCells.push(new Array(xySize).fill(0));  // Creates an array and assigns values to it, the "fill()" method fills specified elements in an array with a value
-        
+
     }
 
     for (let y = 0; y < xySize; y++) { // Height
@@ -78,12 +79,12 @@ function newGeneration() {
 
 function neighboursCount(x, y) {
     let count = 0;
-    
+
     // Get over though the total neighbourhood next to the central cell (0,0)
     for (h = -1; h <= 1; h++) { // Y -1 to Y + 1
-        
+
         for (w = -1; w <= 1; w++) { // X - 1 to X + 1
-            
+
             let nx = (x + w + xySize) % xySize;
             let ny = (y + h + xySize) % xySize;
 
@@ -98,9 +99,9 @@ function init() { // Initialize the game
     createTable();
     draw();
 
-    btnStart.onclick=() => start();
+    btnStart.onclick = () => start();
     btnClear.onclick = () => clear();
-
+    btnRandom.onclick = () => randomize();
 
 }
 
@@ -122,7 +123,7 @@ function search(x, y) { // Search for the <td> with the "id" (id = coordinate)
 }
 
 //This function is when the button start is clicked - starts and pause the game
-function start(){
+function start() {
 
     if (playing) {
         playing = false; //if playing equals false the timer will clear and the games stops
@@ -130,8 +131,8 @@ function start(){
 
         btnStart.innerHTML = 'Resume'; //displays Resume on the button
 
-
     } else {
+        btnRandom.classList.add("clickDisable"); // Adds "clickDisable" class into the "btnRandom" to make it unclickeable and hide it
         //starts the game 
         btnStart.innerHTML = 'Pause';//displays pause on the button
         playing = true;
@@ -153,7 +154,7 @@ function play() {
 
 
 //this function is to clear the board
-function clear(){
+function clear() {
     //we create a nested loop to go throght every cell then remove the ones "filled"[black] and add "empty"[white]
     for (let y = 0; y < xySize; y++) {
         for (let x = 0; x < xySize; x++) {
@@ -164,6 +165,17 @@ function clear(){
     }
 }
 
+function randomize() {
+    clear(); // Clears the table
+    // Creates random filled cells
+    for (let i = 0; i < Math.floor(Math.random() * 400); i++) { // Sets the filled cells quantity randomly between 1 and 400
 
+        let x = Math.floor(Math.random() * xySize); // creates random X coordinate
+        let y = Math.floor(Math.random() * xySize); // creates random Y coordinate
+
+        cells[y][x] = 1; // Fills this cell
+    }
+    draw(); // Updates the visual grid
+}
 
 init(); // Initialize the game
