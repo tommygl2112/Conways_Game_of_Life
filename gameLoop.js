@@ -1,6 +1,7 @@
 btnStart = document.querySelector(".start");
 btnClear = document.querySelector(".clear");
 btnRandom = document.querySelector(".randomize");
+btnRestart= document.querySelector(".restart");
 genCounter = document.querySelector(".gen");
 
 
@@ -34,6 +35,7 @@ function createTable() {
             tr.appendChild(td); // The appendChild() method appends a element as the last child of an element
         }
     }
+
 }
 
 function draw() {
@@ -51,8 +53,7 @@ function draw() {
 }
 
 function newGeneration() {
-    genNum++;
-    genCounter.innerHTML=genNum;
+    
     
     let newCells = []; // Save the new logical grid
 
@@ -78,6 +79,8 @@ function newGeneration() {
         }
     }
     cells = newCells; // Updates the logical grid
+    genNum++;//increases the number of generations
+    genCounter.innerHTML=genNum; //refresh the number of generatios each iteration
     draw(); // Updates the visual grid
 }
 
@@ -102,7 +105,8 @@ function neighboursCount(x, y) {
 function init() { // Initialize the game
     createTable();
     draw();
-
+    btnRestart.classList.add("clickDisable"); 
+    btnRestart.onclick = () =>reset();
     btnStart.onclick = () => start();
     btnClear.onclick = () => clear();
     btnRandom.onclick = () => randomize();
@@ -128,7 +132,7 @@ function search(x, y) { // Search for the <td> with the "id" (id = coordinate)
 
 //This function is when the button start is clicked - starts and pause the game
 function start() {
-
+    btnRestart.classList.remove("clickDisable"); //enables the reset button
     if (playing) {
         playing = false; //if playing equals false the timer will clear and the games stops
         clearTimeout(timer);//sets the timer to 0
@@ -138,6 +142,7 @@ function start() {
     } else {
         genCounter.classList.add("avaible");
         btnRandom.classList.add("clickDisable"); // Adds "clickDisable" class into the "btnRandom" to make it unclickeable and hide it
+        
         //starts the game 
         btnStart.innerHTML = 'Pause';//displays pause on the button
         
@@ -183,5 +188,15 @@ function randomize() {
     }
     draw(); // Updates the visual grid
 }
+function reset(){
+    clearTimeout(timer);
+    btnStart.innerHTML = 'Start';
+    btnRandom.classList.remove("clickDisable");
+    btnRestart.classList.add("clickDisable");
 
+    playing = false;
+    clear();
+    genNum=0;
+    genCounter.classList.remove("avaible");
+}
 init(); // Initialize the game
