@@ -25,8 +25,11 @@ header{
 }
 
 header h1,
-section label{
+section label,
+header div{
     color: white;
+    text-align: center;
+    margin-top: 10px;
 }
 
 .avaible{
@@ -79,6 +82,10 @@ button:active {
 .clickDisable{ /* To disable buttons */
     pointer-events: none; /* Element can't be clicked */
     display: none; /* Hide the element */
+}
+
+.pointerDiable{
+    pointer-events: none;
 }
 
 
