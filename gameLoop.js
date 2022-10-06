@@ -1,19 +1,18 @@
-btnStart = document.querySelector(".start");
-btnClear = document.querySelector(".clear");
-btnRandom = document.querySelector(".randomize");
-btnRestart= document.querySelector(".restart");
-genCounter = document.querySelector(".gen");
-
+let btnStart = document.querySelector(".start");
+let btnClear = document.querySelector(".clear");
+let btnRandom = document.querySelector(".randomize");
+let btnRestart= document.querySelector(".restart");
+let genCounter = document.querySelector(".gen");
+let table = document.querySelector('#table');
 
 
 let xySize = 20; // Height and width of the grid
 let htmlArr = []; // HTML grid
 let cells = []; // Logical grid
 let playing = false;// Flag to check if the game is being played 
-var timer; //timer to execute at a particular time
+let timer; //timer to execute at a particular time
 let genNum=0;
 function createTable() {
-    let table = document.querySelector('#table'); // Gets the <table> from the HTML whit the "id=field"
 
     for (let y = 0; y < xySize; y++) { // Height
 
@@ -80,7 +79,7 @@ function newGeneration() {
     }
     cells = newCells; // Updates the logical grid
     genNum++;//increases the number of generations
-    genCounter.innerHTML=genNum; //refresh the number of generatios each iteration
+    genCounter.innerHTML= "Generation: " + genNum; //refresh the number of generatios each iteration
     draw(); // Updates the visual grid
 }
 
@@ -140,6 +139,7 @@ function start() {
         btnStart.innerHTML = 'Resume'; //displays Resume on the button
 
     } else {
+        table.classList.add("pointerDiable");
         genCounter.classList.add("avaible");
         btnRandom.classList.add("clickDisable"); // Adds "clickDisable" class into the "btnRandom" to make it unclickeable and hide it
         
@@ -198,5 +198,10 @@ function reset(){
     clear();
     genNum=0;
     genCounter.classList.remove("avaible");
+
+    table.classList.remove("pointerDiable");
+    genCounter.innerHTML = `Please set an initial configuration before starts the game by clicking the grid. <br>
+    You can also generate a random initial configuration by clicking the "Randomize" button. <br>
+    The "Clear" button will wipe all the cells, no matters if the game has started or not.`;
 }
 init(); // Initialize the game
