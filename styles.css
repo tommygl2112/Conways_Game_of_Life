@@ -17,10 +17,26 @@ body {
     flex-direction: column;
     gap: 10px;
 }
+header{
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+}
 
 header h1,
 section label{
     color: white;
+}
+
+.avaible{
+    margin:15px;
+    padding: 10px;
+    align-self: center;
+    font-family: 'Press Start 2P', cursive;
+    animation: rainbow 2.5s linear;
+    animation-iteration-count: infinite;
+    font-size: 20px;
 }
 
 .cell {
@@ -44,8 +60,9 @@ section label{
 }
 
 button {
+    font-family: 'Press Start 2P', cursive;
     outline: 0;
-    font-size: 1em;
+    font-size: 0.8em;
     font-weight: 600;
     background: #fff;
     border: none;
@@ -62,4 +79,44 @@ button:active {
 .clickDisable{ /* To disable buttons */
     pointer-events: none; /* Element can't be clicked */
     display: none; /* Hide the element */
+}
+
+
+@keyframes rainbow{
+    100%,0%{
+        color: rgb(255,0,0);
+    }
+    8%{
+        color: rgb(255,127,0);
+    }
+    16%{
+        color: rgb(255,255,0);
+    }
+    25%{
+        color: rgb(127,255,0);
+    }
+    33%{
+        color: rgb(0,255,0);
+    }
+    41%{
+        color: rgb(0,255,127);
+    }
+    50%{
+        color: rgb(0,255,255);
+    }
+    58%{
+        color: rgb(0,127,255);
+    }
+    66%{
+        color: rgb(134, 134, 255);
+    }
+    75%{
+        color: rgb(184, 114, 255);
+    }
+    83%{
+        color: rgb(255,0,255);
+    }
+    91%{
+        color: rgb(255,0,127);
+    }
 }

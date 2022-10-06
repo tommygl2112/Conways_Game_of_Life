@@ -1,6 +1,7 @@
 btnStart = document.querySelector(".start");
 btnClear = document.querySelector(".clear");
 btnRandom = document.querySelector(".randomize");
+genCounter = document.querySelector(".gen");
 
 
 
@@ -9,7 +10,7 @@ let htmlArr = []; // HTML grid
 let cells = []; // Logical grid
 let playing = false;// Flag to check if the game is being played 
 var timer; //timer to execute at a particular time
-
+let genNum=0;
 function createTable() {
     let table = document.querySelector('#table'); // Gets the <table> from the HTML whit the "id=field"
 
@@ -50,6 +51,9 @@ function draw() {
 }
 
 function newGeneration() {
+    genNum++;
+    genCounter.innerHTML=genNum;
+    
     let newCells = []; // Save the new logical grid
 
     for (let y = 0; y < xySize; y++) { // Temporal logical grid
@@ -132,9 +136,11 @@ function start() {
         btnStart.innerHTML = 'Resume'; //displays Resume on the button
 
     } else {
+        genCounter.classList.add("avaible");
         btnRandom.classList.add("clickDisable"); // Adds "clickDisable" class into the "btnRandom" to make it unclickeable and hide it
         //starts the game 
         btnStart.innerHTML = 'Pause';//displays pause on the button
+        
         playing = true;
         play();
     }
