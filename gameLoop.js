@@ -1,6 +1,11 @@
+btnStart= document.querySelector(".start");
+
+
 let xySize = 20; // Height and width of the grid
 let htmlArr = []; // HTML grid
 let cells = []; // Logical grid
+let playing = false;// Flag to check if the game is being played 
+var timer; //timer to execute at a particular time
 
 function createTable() {
     let table = document.querySelector('#table'); // Gets the <table> from the HTML whit the "id=field"
@@ -90,6 +95,9 @@ function neighboursCount(x, y) {
 function init() { // Initialize the game
     createTable();
     draw();
+
+    btnStart.onclick=() => start();
+
 }
 
 function search(x, y) { // Search for the <td> with the "id" (id = coordinate)
@@ -108,5 +116,36 @@ function search(x, y) { // Search for the <td> with the "id" (id = coordinate)
         cells[y][x] = 1;
     }
 }
+
+//This function is when the button start is clicked - starts and pause the game
+function start(){
+
+    if (playing) {
+        playing = false; //if playing equals false the timer will clear and the games stops
+        clearTimeout(timer);//sets the timer to 0
+
+        btnStart.innerHTML = 'Resume'; //displays Resume on the button
+
+
+    } else {
+        //starts the game 
+        btnStart.innerHTML = 'Pause';//displays pause on the button
+        playing = true;
+        play();
+    }
+
+}
+
+//This function is to run the game 
+function play() {
+
+    //This is used to call the function to generate the generation 
+    newGeneration();
+
+    if (playing) {//if playing equals true the game starts playing with an interval of 100
+        timer = setTimeout(play, 100); //will call the function play that run the game and execute the new generation
+    }
+}
+
 
 init(); // Initialize the game
