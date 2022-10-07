@@ -1,0 +1,51 @@
+<html>
+
+<head>
+  <title>Conway's Game Of Life</title>
+  <link rel="stylesheet" href="./styles.css"> <!-- Main CSS -->
+  <link rel="stylesheet" href="./stars.css"> <!-- Stars BG CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    rel="stylesheet"
+    >
+</head>
+
+<body>
+
+  <main class="mainSpace">
+
+    <header>
+      <h1>Conway's Game Of Life</h1>
+      <div class="gen"> Please set an initial configuration before starts the game by clicking the grid. <br>
+        You can also generate a random initial configuration by clicking the "Randomize" button. <br>
+        The "Clear" button will wipe all the cells, no matters if the game has started or not.
+      </div>
+    </header>
+
+    <section class="tableSection">
+      <!-- It is and it will be the unique table, and has an "id" for JS purpose-->
+      <table id="table"></table>
+    </section>
+
+    <section class="btnSection">
+      <button class="start">Start</button>
+      <button class="clear">Clear</button>
+      <button class="randomize">Randomize</button>
+      <button class="restart">Reset</button>
+    </section>
+
+  </main>
+
+  <section class="wrapper"> <!-- Stars BG -->
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+  </section>
+
+  <script src="./gameLoop.js"></script>
+
+</body>
+
+</html>
