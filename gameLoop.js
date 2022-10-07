@@ -4,7 +4,9 @@ let btnRandom = document.querySelector(".randomize");
 let btnRestart= document.querySelector(".restart");
 let genCounter = document.querySelector(".gen");
 let table = document.querySelector('#table');
-
+let menuPat1 = document.querySelector('#pat1');
+let menuPat2 = document.querySelector('#pat2');
+let menu = document.querySelector('.patterns');
 
 let xySize = 20; // Height and width of the grid
 let htmlArr = []; // HTML grid
@@ -109,7 +111,9 @@ function init() { // Initialize the game
     btnStart.onclick = () => start();
     btnClear.onclick = () => clear();
     btnRandom.onclick = () => randomize();
-
+    menuPat1.onclick = () => loadpat(pattern1);
+    menuPat2.onclick = () => loadpat(pattern2);
+    menu.classList.add("patternst");
 }
 
 function search(x, y) { // Search for the <td> with the "id" (id = coordinate)
@@ -139,10 +143,11 @@ function start() {
         btnStart.innerHTML = 'Resume'; //displays Resume on the button
 
     } else {
+        menu.classList.remove("patternst");
         table.classList.add("pointerDiable");
         genCounter.classList.add("avaible");
         btnRandom.classList.add("clickDisable"); // Adds "clickDisable" class into the "btnRandom" to make it unclickeable and hide it
-        
+        menu.classList.add("clikDisable");
         //starts the game 
         btnStart.innerHTML = 'Pause';//displays pause on the button
         
@@ -193,7 +198,7 @@ function reset(){
     btnStart.innerHTML = 'Start';
     btnRandom.classList.remove("clickDisable");
     btnRestart.classList.add("clickDisable");
-
+    menu.classList.add("patternst");
     playing = false;
     clear();
     genNum=0;
@@ -204,4 +209,56 @@ function reset(){
     You can also generate a random initial configuration by clicking the "Randomize" button. <br>
     The "Clear" button will wipe all the cells, no matters if the game has started or not.`;
 }
+
+let pattern1 = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0],
+               [0,0,0,0,1,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0],
+               [0,0,0,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],       
+               [0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0],
+               [0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0],
+               [0,0,0,0,1,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0],
+               [0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                ];
+let pattern2 = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],       
+               [0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                ];
+function loadpat(pattern){
+    for(let i=0; i<xySize; i++){
+        for(let j=0; j<xySize;j++){
+            cells[i][j]=pattern[i][j];
+        }
+    }
+        draw();
+    }
+    
 init(); // Initialize the game
