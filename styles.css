@@ -72,7 +72,7 @@ header div{
 .menu {
 
     width: 150px;
-    height: 150px;
+    height: 100%;
     overflow-y: auto; /*Vertical scroll*/	  
   }
    /* Styling the links */
@@ -86,10 +86,12 @@ header div{
     font-size : 10px;
   }
 
-  .menu a:hover {
+  .menu a:hover,
+  button:hover {
     background-color:  rgb(253, 101, 225);
     color: white; 
     text-decoration: none; 
+    cursor: pointer;
   }
 
 .btnSection {
