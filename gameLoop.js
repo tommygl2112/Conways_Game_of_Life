@@ -6,6 +6,8 @@ let genCounter = document.querySelector(".gen");
 let table = document.querySelector('#table');
 let menuPat1 = document.querySelector('#pat1');
 let menuPat2 = document.querySelector('#pat2');
+let menuPat3 = document.querySelector("#pat3");
+let menuPat4 = document.querySelector("#pat4");
 let menu = document.querySelector('.patterns');
 
 let xySize = 20; // Height and width of the grid
@@ -113,6 +115,8 @@ function init() { // Initialize the game
     btnRandom.onclick = () => randomize();
     menuPat1.onclick = () => loadpat(pattern1);
     menuPat2.onclick = () => loadpat(pattern2);
+    menuPat3.onclick = () => loadpat(pattern3);
+    menuPat4.onclick = () => loadpat(pattern4);
     menu.classList.add("patternst");
 }
 
@@ -193,20 +197,24 @@ function randomize() {
     }
     draw(); // Updates the visual grid
 }
-function reset(){
+function reset(){ // Set the initial screen
     clearTimeout(timer);
-    btnStart.innerHTML = 'Start';
-    btnRandom.classList.remove("clickDisable");
-    btnRestart.classList.add("clickDisable");
+    btnStart.innerHTML = 'Start'; // Change the text in "btnStart" button
+    btnRandom.classList.remove("clickDisable"); // Removes the "clickDisable" class on the random button to enable the button again
+    btnRestart.classList.add("clickDisable"); // Adds the "clickDisable" class on restart button to set unable
     menu.classList.add("patternst");
-    playing = false;
-    clear();
-    genNum=0;
+    playing = false; // Flag to know that the game stops
+    clear(); // Clears the grid
+    genNum=0; // Reset the number of generation
     genCounter.classList.remove("avaible");
 
-    table.classList.remove("pointerDiable");
-    genCounter.innerHTML = `Please set an initial configuration before starts the game by clicking the grid. <br>
+    table.classList.remove("pointerDiable"); // Set the pointer events enable again
+    // Adds the instructions back
+    genCounter.innerHTML = `Please set an initial configuration before starts the game by clicking the grid, <br>
+    or choosing a pattern in the list.<br>
+    <br>
     You can also generate a random initial configuration by clicking the "Randomize" button. <br>
+    <br>
     The "Clear" button will wipe all the cells, no matters if the game has started or not.`;
 }
 
@@ -252,7 +260,50 @@ let pattern2 = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 ];
-function loadpat(pattern){
+let pattern3 = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],       
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 ];
+let pattern4 = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],       
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                  ];
+
+function loadpat(pattern){ // Loads the pattern choosen into the grid
     for(let i=0; i<xySize; i++){
         for(let j=0; j<xySize;j++){
             cells[i][j]=pattern[i][j];
