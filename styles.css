@@ -54,6 +54,45 @@ header div{
 .empty {
     background: white;
 }
+.patterns{
+    pointer-events: none; /* Element can't be clicked */
+    display: none; /* Hide the element */
+}
+.patternst{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 250px;
+    pointer-events: all;
+    gap:8px;
+}
+.menu {
+
+    width: 150px;
+    height: 100%;
+    overflow-y: auto; /*Vertical scroll*/	  
+  }
+   /* Styling the links */
+   
+  .menu a {
+    text-decoration: none;
+    background-color: rgb(255, 255, 255,0);
+    display: block;	  
+    color: white; 
+    padding: 12px; 
+    font-size : 10px;
+  }
+
+  .menu a:hover,
+  button:hover {
+    background-color:  rgb(253, 101, 225);
+    color: white; 
+    text-decoration: none; 
+    cursor: pointer;
+  }
 
 .btnSection {
     display: flex;
